@@ -1,16 +1,16 @@
 import socket
-import settings
+import settings as settings
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((settings.address, 5555))
+server.bind((settings.address, settings.port))
 
-server.listen()
+server.listen(4)
 
 while True:
-    user, address = server.accept()
+    client, address = server.accept()
 
     print("user connected.")
-    user.send("connected.".encode("utf-8"))
+    client.send("connected.".encode("utf-8"))
 
-    data = user.recv(1024)
-    print(data.decode("utf-8"))
+    data = client.recv(1024).decode("utf-8")
+    print(data)

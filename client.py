@@ -1,9 +1,9 @@
 import socket
-import clientsettings
+import clientsettings as settings
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-client.connect((clientsettings.address, 5555))
+client.connect((settings.address, settings.port))
 
 while True:
     data = client.recv(1024)
