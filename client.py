@@ -8,5 +8,4 @@ client.connect((settings.address, settings.port))
 while True:
     data = client.recv(1024)
     print(data.decode("utf-8"))
-
     client.send(input().encode("utf-8"))
