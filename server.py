@@ -28,7 +28,7 @@ class Server:
     def message(self, client_socket):
         while True:
             message = client_socket.recv(1024)
-            print(message)
+            print(message.decode("utf-8"))
             if message == b'exit':
                 self.all_client.remove(client_socket)
                 break
